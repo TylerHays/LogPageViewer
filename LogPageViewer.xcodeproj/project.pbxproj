@@ -16,6 +16,10 @@
 		F31EA78922728F7800C54FF9 /* LogDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31EA78822728F7800C54FF9 /* LogDownloader.swift */; };
 		F31EA78B22729AD500C54FF9 /* LogDownloaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31EA78A22729AD500C54FF9 /* LogDownloaderTest.swift */; };
 		F31EA78E22736C3000C54FF9 /* UserPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31EA78D22736C3000C54FF9 /* UserPageView.swift */; };
+		F31EA790227374B200C54FF9 /* PageViewSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31EA78F227374B200C54FF9 /* PageViewSet.swift */; };
+		F31EA792227388CB00C54FF9 /* LogProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31EA791227388CB00C54FF9 /* LogProcessor.swift */; };
+		F31EA7942273893600C54FF9 /* LogProcessorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31EA7932273893600C54FF9 /* LogProcessorTest.swift */; };
+		F31EA79622738C2F00C54FF9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31EA79522738C2F00C54FF9 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,10 @@
 		F31EA78822728F7800C54FF9 /* LogDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDownloader.swift; sourceTree = "<group>"; };
 		F31EA78A22729AD500C54FF9 /* LogDownloaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDownloaderTest.swift; sourceTree = "<group>"; };
 		F31EA78D22736C3000C54FF9 /* UserPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageView.swift; sourceTree = "<group>"; };
+		F31EA78F227374B200C54FF9 /* PageViewSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewSet.swift; sourceTree = "<group>"; };
+		F31EA791227388CB00C54FF9 /* LogProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogProcessor.swift; sourceTree = "<group>"; };
+		F31EA7932273893600C54FF9 /* LogProcessorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogProcessorTest.swift; sourceTree = "<group>"; };
+		F31EA79522738C2F00C54FF9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,7 @@
 				F31EA77B227276E100C54FF9 /* LogPageViewerTests.swift */,
 				F31EA77D227276E100C54FF9 /* Info.plist */,
 				F31EA78A22729AD500C54FF9 /* LogDownloaderTest.swift */,
+				F31EA7932273893600C54FF9 /* LogProcessorTest.swift */,
 			);
 			path = LogPageViewerTests;
 			sourceTree = "<group>";
@@ -110,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				F31EA78822728F7800C54FF9 /* LogDownloader.swift */,
+				F31EA791227388CB00C54FF9 /* LogProcessor.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -125,6 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				F31EA78D22736C3000C54FF9 /* UserPageView.swift */,
+				F31EA78F227374B200C54FF9 /* PageViewSet.swift */,
+				F31EA79522738C2F00C54FF9 /* User.swift */,
 			);
 			path = "Business Object";
 			sourceTree = "<group>";
@@ -231,9 +243,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F31EA78E22736C3000C54FF9 /* UserPageView.swift in Sources */,
+				F31EA792227388CB00C54FF9 /* LogProcessor.swift in Sources */,
 				F31EA78922728F7800C54FF9 /* LogDownloader.swift in Sources */,
+				F31EA790227374B200C54FF9 /* PageViewSet.swift in Sources */,
 				F31EA769227276DF00C54FF9 /* LoadLogsViewController.swift in Sources */,
 				F31EA767227276DF00C54FF9 /* AppDelegate.swift in Sources */,
+				F31EA79622738C2F00C54FF9 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F31EA77C227276E100C54FF9 /* LogPageViewerTests.swift in Sources */,
+				F31EA7942273893600C54FF9 /* LogProcessorTest.swift in Sources */,
 				F31EA78B22729AD500C54FF9 /* LogDownloaderTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

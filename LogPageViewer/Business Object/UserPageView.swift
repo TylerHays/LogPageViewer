@@ -8,13 +8,12 @@
 
 import UIKit
 
-class UserPageView: NSObject {
+class UserPageView {
     var user: String
     var pageView: String
     
     init(user: String, pageView: String){
         self.user = user
         self.pageView = pageView
-        super.init()
     }
 }

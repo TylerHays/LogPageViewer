@@ -32,9 +32,8 @@ class LogDownloader: NSObject {
             guard let returnString = String(data: responseData, encoding: .utf8) else {
                 return
             }
-            let split = returnString.split(separator: "\n")
-            let test = self.seperatedLogFileInMultipleLogs(logs: returnString)
-            print("\(split)")
+            LogProcessor.processLogs(returnString)
+        //    print("\(split)")
             
         }
         task.resume()
@@ -45,6 +44,18 @@ class LogDownloader: NSObject {
 
     func seperatedLogFileInMultipleLogs(logs: String) -> [String] {
         return logs.components(separatedBy: "\n")
+    }
+    
+    
+    func getUserPageViews(from logs: [String]) -> [UserPageView] {
+        var userPageViews: [UserPageView] = []
+        for log in logs {
+            let userPage = getUserAndPage(log: log)
+            let userPageView = UserPageView(user: userPage.user, pageView: userPage.pageVisited)
+            userPageViews.append(userPageView)
+        }
+        
+        return userPageViews
     }
     
 
