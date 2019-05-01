@@ -18,10 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENT-3H-PpJ">
-                                <rect key="frame" x="139" y="361" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENT-3H-PpJ">
+                                <rect key="frame" x="127.5" y="460" width="159" height="30"/>
+                                <state key="normal" title="Load and Process Logs"/>
                                 <connections>
                                     <action selector="loadLogsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iUd-49-NaX"/>
                                 </connections>
@@ -30,13 +29,13 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q9S-sf-otm">
-                                        <rect key="frame" x="164.5" y="371.5" width="85" height="65"/>
+                                        <rect key="frame" x="148" y="371.5" width="118.5" height="65"/>
                                         <subviews>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="hhl-yK-BUY">
-                                                <rect key="frame" x="32.5" y="8" width="20" height="20"/>
+                                                <rect key="frame" x="49" y="8" width="20" height="20"/>
                                             </activityIndicatorView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zas-OY-vIz">
-                                                <rect key="frame" x="8" y="36" width="69" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Logs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zas-OY-vIz">
+                                                <rect key="frame" x="8" y="36" width="102.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -68,6 +67,8 @@
                             <constraint firstItem="j3p-S9-ROP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PPd-Za-PrS"/>
                             <constraint firstItem="j3p-S9-ROP" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="boA-Mu-8l0"/>
                             <constraint firstAttribute="bottom" secondItem="j3p-S9-ROP" secondAttribute="bottom" id="k3J-jA-iZl"/>
+                            <constraint firstItem="ENT-3H-PpJ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="lSk-M0-e2K"/>
+                            <constraint firstItem="ENT-3H-PpJ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nxi-Xo-v96"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -82,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="128.57142857142856"/>
         </scene>
-        <!--Log Pageset View Controller-->
+        <!--Pageset View-->
         <scene sceneID="p0k-Xu-jUZ">
             <objects>
-                <viewController id="2Gd-36-LWB" customClass="LogPagesetViewController" customModule="LogPageViewer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Pageset View" id="2Gd-36-LWB" customClass="LogPagesetViewController" customModule="LogPageViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="adK-7V-bko">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -40,11 +40,7 @@ class LogProcessorTest: XCTestCase {
         XCTAssertEqual(test.user, "123.4.5.9")
         XCTAssertEqual(test.pageVisited, "/team/")
     }
-    
-    
-    func testGroupPageView() {
-        
-    }
+
     
     func testExample() {
         // This is an example of a functional test case.
