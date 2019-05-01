@@ -41,14 +41,6 @@ class LogProcessorTest: XCTestCase {
         XCTAssertEqual(test.pageVisited, "/team/")
     }
     
-    func testSeperatedLogFileInMultipleLogs() {
-        let test = LogProcessor.seperatedLogFileInMultipleLogs(dumpyLogs)
-        XCTAssertEqual(test.count, 10)
-    }
-    
-    func testProcessLogs() {
-        LogProcessor.processLogs(dumpyLogs)
-    }
     
     func testGroupPageView() {
         

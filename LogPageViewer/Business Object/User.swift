@@ -12,11 +12,21 @@ class User: NSObject {
     let userName: String
     let pagesViews: [String]
     
+    
+    /// creates a user with all of their pages that they viewed in order
+    ///
+    /// - Parameters:
+    ///   - userName: user id
+    ///   - pagesViews: lets of pages view by user in order
     init (userName: String, pagesViews:[String]) {
         self.userName = userName
         self.pagesViews = pagesViews
     }
     
+    
+    /// creates an array of sets of 3 of the pages a user viewed If there are no sets of three an empty array is returned
+    ///
+    /// - Returns: sets of 3 that the user view
     func getPageViewSets() -> [[String]] {
         var workingPageViewSet: [String] = []
         var setsOfPageViews: [[String]] = []

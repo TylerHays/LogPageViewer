@@ -8,9 +8,22 @@
 
 import UIKit
 
-class LogDownloader: NSObject {
+
+protocol LogDownloaderDelegate {
+    func logDownloader(_ downloader:LogDownloader, logEntries: [String])
+    func logDownloaderError(_ downloader:LogDownloader)
+}
+
+class LogDownloader {
+    
+    var downloaderDelegate: LogDownloaderDelegate?
     
     private let apiLogs = "https://dev.inspiringapps.com/Files/IAChallenge/30E02AAA-B947-4D4B-8FB6-9C57C43872A9/Apache.log"
+    
+    
+    init(delegate: LogDownloaderDelegate) {
+        self.downloaderDelegate = delegate
+    }
     
     func loadData() {
         
@@ -20,65 +33,30 @@ class LogDownloader: NSObject {
         let urlRequest = URLRequest(url: dataUrl)
         let task = session.dataTask(with: urlRequest) {  (data, response, error) in
             guard error == nil else {
-                //TODO: Error message
+                DispatchQueue.main.async {
+                    self.downloaderDelegate?.logDownloaderError(self)
+                }
                 return
             }
             
             guard let responseData = data else {
-                //TODO: Error message
+                DispatchQueue.main.async {
+                    self.downloaderDelegate?.logDownloaderError(self)
+                }
                 return
             }
             
             guard let returnString = String(data: responseData, encoding: .utf8) else {
                 return
             }
-            LogProcessor.processLogs(returnString)
-        //    print("\(split)")
+            let logList = returnString.components(separatedBy: "\n")
+            let finalList = logList.filter({!$0.isEmpty})
+            DispatchQueue.main.async {
+                self.downloaderDelegate?.logDownloader(self, logEntries: finalList)
+            }
             
         }
         task.resume()
         
     }
-    
-    
-
-    func seperatedLogFileInMultipleLogs(logs: String) -> [String] {
-        return logs.components(separatedBy: "\n")
-    }
-    
-    
-    func getUserPageViews(from logs: [String]) -> [UserPageView] {
-        var userPageViews: [UserPageView] = []
-        for log in logs {
-            let userPage = getUserAndPage(log: log)
-            let userPageView = UserPageView(user: userPage.user, pageView: userPage.pageVisited)
-            userPageViews.append(userPageView)
-        }
-        
-        return userPageViews
-    }
-    
-
-    //My gut is telling me there is a better way of doing this other than brute force
-    func getUserAndPage(log: String) -> (user: String, pageVisited:String) {
-        let splitLog = log.components(separatedBy: " - - ")
-        let user = splitLog[0]
-        let pageName = getPageVisited(log: log)
-        return (user, pageName)
-    }
-    
-    private func getPageVisited(log: String) -> String {
-        let splitLog = log.components(separatedBy: " - - ")
-        guard splitLog.count > 1 else {
-            return ""
-        }
-        
-        let logSplit2 = splitLog[1].components(separatedBy: " \"GET ")
-        guard logSplit2.count > 1 else {
-            return ""
-        }
-        let finalSplit = logSplit2[1].components(separatedBy: " HTTP")
-        return finalSplit[0]
-    }
-
 }

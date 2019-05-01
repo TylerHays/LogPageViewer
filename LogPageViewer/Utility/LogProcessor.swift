@@ -11,36 +11,40 @@ import Foundation
 class LogProcessor {
     
     
-    static func processLogs(_ logs:String) -> [PageViewSet]{
+    /// Takes a log file and breaks it down into pages sets of users.
+    ///
+    /// - Parameter logs: logs where each entry is a single part of the array
+    /// - Returns: sets of pages in order of greats to smallest
+    static func processLogEntries(_ logEntries:[String]) -> [PageViewSet]{
         
         //Break the entries down to page views per user in order.
-        let entries = seperatedLogFileInMultipleLogs(logs)
-        let userPageViews = getUserPageViews(from: entries)
+        let userPageViews = getUserPageViews(from: logEntries)
         let userList = createUsers(from: userPageViews)
+        
+        var tempTest: [String] = []
         
         //Create sets of 3 pages view per user
         var usersPageViewSets: [[String]] = []
         for user in userList {
             let userpageViews = user.getPageViewSets()
             usersPageViewSets.append(contentsOf: userpageViews)
+            tempTest.append(contentsOf: user.pagesViews)
+            
         }
-        
-        
+  
         var viewSetCount: [PageViewSet] = []
+        
+        //takes the master list of pagesets and breaks them down into set with count of how many times it appears. 
         let pageCount = usersPageViewSets.reduce(into: [:]) { counts, pageSets in counts[pageSets, default: 0] += 1 }
         for count in pageCount {
-            let pageSet = PageViewSet(pagesViews: count.key, startingCount: count.value)
+            let pages = count.key
+            let pageSet = PageViewSet.init(page1: pages[0], page2: pages[1], page3: pages[2], setCount: count.value)
             viewSetCount.append(pageSet)
         }
-        let sortedPage = viewSetCount.sorted{$0.count > $1.count}
+        let sortedPage = viewSetCount.sorted{$0.setCount > $1.setCount}
+        
         return sortedPage
     }
-
-    static func seperatedLogFileInMultipleLogs(_ logs: String) -> [String] {
-        let logList = logs.components(separatedBy: "\n")
-        return logList.filter({!$0.isEmpty})
-    }
-    
     
    static func getUserPageViews(from logs: [String]) -> [UserPageView] {
         var userPageViews: [UserPageView] = []
