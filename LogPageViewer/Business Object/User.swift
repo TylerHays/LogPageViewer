@@ -12,6 +12,8 @@ class User: NSObject {
     let userName: String
     let pagesViews: [String]
     
+    private let pageSetSize = 3
+    
     
     /// creates a user with all of their pages that they viewed in order
     ///
@@ -33,11 +35,11 @@ class User: NSObject {
         
         for pageView in self.pagesViews {
             workingPageViewSet.append(pageView)
-            if workingPageViewSet.count < 3 {
+            if workingPageViewSet.count < pageSetSize {
                 continue
             }
             
-             while workingPageViewSet.count > 3 {
+             while workingPageViewSet.count > pageSetSize {
                   workingPageViewSet.removeFirst()
             }
             
