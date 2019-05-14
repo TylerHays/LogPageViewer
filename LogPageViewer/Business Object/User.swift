@@ -37,13 +37,11 @@ class User: NSObject {
                 continue
             }
             
-            if workingPageViewSet.count > 3 {
-                workingPageViewSet.removeFirst()
+             while workingPageViewSet.count > 3 {
+                  workingPageViewSet.removeFirst()
             }
             
-            if workingPageViewSet.count == 3 {
-                setsOfPageViews.append(workingPageViewSet)
-            }
+            setsOfPageViews.append(workingPageViewSet)
         }
         return setsOfPageViews
     }

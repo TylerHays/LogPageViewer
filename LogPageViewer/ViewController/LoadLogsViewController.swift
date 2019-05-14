@@ -9,6 +9,7 @@
 import UIKit
 
 class LoadLogsViewController: UIViewController {
+    
     let showPageSetsSegue = "ShowPageSetsSegue"
     lazy var loadLogsWorker: LogDownloader = LogDownloader(delegate: self)
     var loadedPagesets: [PageViewSet]?
@@ -25,6 +26,7 @@ class LoadLogsViewController: UIViewController {
             vc.setupView(with: pageSets)
         }
     }
+    
     func showSpinner(_ showSpinner: Bool) {
         self.spinnerView.isHidden = !showSpinner
         if (showSpinner){
@@ -33,16 +35,18 @@ class LoadLogsViewController: UIViewController {
             self.spinner.stopAnimating()
         }
     }
+    
     @IBAction func loadLogsPressed(_ sender: Any) {
         showSpinner(true)
         loadLogsWorker.loadData()
     }
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var spinnerView: UIView!
 }
 
 extension LoadLogsViewController: LogDownloaderDelegate {
+    
     func logDownloader(_ downloader: LogDownloader, logEntries: [String]) {
         let pagesets = LogProcessor.processLogEntries(logEntries)
         showSpinner(false)

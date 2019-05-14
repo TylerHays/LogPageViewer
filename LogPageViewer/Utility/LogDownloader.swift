@@ -9,14 +9,14 @@
 import UIKit
 
 
-protocol LogDownloaderDelegate {
+protocol LogDownloaderDelegate: class {
     func logDownloader(_ downloader:LogDownloader, logEntries: [String])
     func logDownloaderError(_ downloader:LogDownloader)
 }
 
 class LogDownloader {
     
-    var downloaderDelegate: LogDownloaderDelegate?
+    weak var downloaderDelegate: LogDownloaderDelegate?
     
     private let apiLogs = "https://dev.inspiringapps.com/Files/IAChallenge/30E02AAA-B947-4D4B-8FB6-9C57C43872A9/Apache.log"
     

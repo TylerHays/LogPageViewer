@@ -15,7 +15,7 @@ class LogProcessor {
     ///
     /// - Parameter logs: logs where each entry is a single part of the array
     /// - Returns: sets of pages in order of greats to smallest
-    static func processLogEntries(_ logEntries:[String]) -> [PageViewSet]{
+    static func processLogEntries(_ logEntries:[String]) -> [PageViewSet] {
         
         //Break the entries down to page views per user in order.
         let userPageViews = getUserPageViews(from: logEntries)
