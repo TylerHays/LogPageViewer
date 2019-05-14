@@ -6,6 +6,8 @@
 //  Copyright © 2019 Tyler Hays. All rights reserved.
 //
 
+
+//This file was oringally set up during development. Due to this just being a minor coding challenage I did not go back and complete the unit test to time box the project.
 import XCTest
 @testable import LogPageViewer
 

@@ -50,6 +50,14 @@ class User: NSObject {
 }
 
 extension User {
+    
+    
+    /// creates a user with only his page views from the log
+    ///
+    /// - Parameters:
+    ///   - user: user name
+    ///   - userPageView: user page views to filiter
+    /// - Returns: user with only his info.  
     static func createUserFromLogs(user:String, userPageView: [UserPageView]) -> User {
         let filterPageViews = userPageView.filter{$0.user == user}
         let pageViews: [String] = filterPageViews.map{$0.pageView}
